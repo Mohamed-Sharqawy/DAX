@@ -10,3 +10,8 @@ Calculate:
   AverageShipmentDays = AVERAGEX('SuperMarket Sales',DATEDIFF('SuperMarket Sales'[Order Date],'SuperMarket Sales'[Ship Date],DAY))
   2 - using calculated column
   ShipmentDays = DATEDIFF('SuperMarket Sales'[Order Date],'SuperMarket Sales'[Ship Date],DAY)
+
+Apply conditional formatting to highlight customers who made repeated purchases in a 
+specified period. 
+
+Purchases Count = CALCULATE(COUNT('SuperMarket Sales'[Order No]),FILTER('SuperMarket Sales','SuperMarket Sales'[Customer Name]=EARLIER('SuperMarket Sales'[Customer Name]) && 'SuperMarket Sales'[Order Date]>= EARLIER('SuperMarket Sales'[Order Date]) - 7))

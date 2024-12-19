@@ -1,0 +1,12 @@
+Calculate: 
+•  average order quantity
+  AverageOrderQuantity = AVERAGE('SuperMarket Sales'[Order Quantity])
+  
+• average spending 
+  AverageSpending = AVERAGE('SuperMarket Sales'[Total (USD)])
+
+•  average shipment days for an order.
+  1 - using measure
+  AverageShipmentDays = AVERAGEX('SuperMarket Sales',DATEDIFF('SuperMarket Sales'[Order Date],'SuperMarket Sales'[Ship Date],DAY))
+  2 - using calculated column
+  ShipmentDays = DATEDIFF('SuperMarket Sales'[Order Date],'SuperMarket Sales'[Ship Date],DAY)
